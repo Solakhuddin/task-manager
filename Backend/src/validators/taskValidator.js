@@ -8,7 +8,7 @@ const addTaskSchema = z.object({
 const updateTaskSchema = z.object({
     title: z.string().min(1, "Title is required").optional(),
     description: z.string().optional(),
-    status: z.enum(["pending", "done"]).optional(),
+    status: z.enum(["Pending", "Done"]).optional(),
     dueDate: z.string().optional(),
 });
 

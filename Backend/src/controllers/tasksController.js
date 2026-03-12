@@ -1,5 +1,5 @@
 import { prisma } from "../config/db.js";
-import { addTaskSchema } from "../validators/TaskValidator.js";
+import { addTaskSchema, updateTaskSchema } from "../validators/TaskValidator.js";
 
 const addTask = async (req, res) => {
   const validation = addTaskSchema.safeParse(req.body);
@@ -10,7 +10,7 @@ const addTask = async (req, res) => {
     return res.status(400).json({ message: validation.error.errors[0].message });
   }
 
-  const { status, dueDate } = validation.data;
+  const { title, description, status } = validation.data;
 
   if(req.body.dueDate < new Date().toISOString()) {
     return res.status(400).json({ message: "Due date cannot be in the past" });
@@ -50,7 +50,14 @@ const getTaskById = async (req, res) => {
 
 const updateTask = async (req, res) => {
   const { id } = req.params;
-  const { title, description, status, dueDate } = req.body;
+  const validation = updateTaskSchema.partial().safeParse(req.body);
+
+  console.log(validation); // Debugging log
+  if (!validation.success) {
+    return res.status(400).json({ message: validation.error.errors[0].message });
+  }
+
+  const { title, description, status, dueDate } = validation.data;
 
   if(dueDate < new Date().toISOString()) {
     return res.status(400).json({ message: "Due date cannot be in the past" });
