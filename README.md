@@ -56,7 +56,7 @@ PORT=5000
 
 Jalankan Prisma Migrations (untuk membuat struktur tabel di database secara otomatis):
 ```bash
-npx prisma migrate dev --name init
+npx prisma migrate dev
 ```
 
 Jalankan server backend:
@@ -72,6 +72,11 @@ cd Frontend
 ```
 
 Instal semua dependencies:
+```bash
+npm install
+```
+
+Jalankan server development untuk frontend:
 ```bash
 npm run dev
 # Aplikasi akan terbuka di http://localhost:5173
