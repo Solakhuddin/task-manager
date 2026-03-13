@@ -1,3 +1,8 @@
+Nama    : Mochammad Solakhuddin Ihsan
+Email   : sholahuddin.ihsan@gmail.com
+Nomor HP: 085648663179
+==================================
+
 # Tasks Manager
 
 Aplikasi manajemen tugas modern dan responsif yang dibangun menggunakan React, Express.js, dan PostgreSQL. Aplikasi ini dilengkapi dengan fitur autentikasi pengguna (JWT), manajemen state, dan kemampuan CRUD penuh untuk mengelola tugas dengan desain antarmuka (UI) bergaya *glassmorphism* yang elegan dan intuitif.
